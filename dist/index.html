@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多肽合成实验流程计算器</title>
+  <script type="module" crossorigin src="/assets/index-BtccyIQ6.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DmGWuIqR.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Peptide SOP Calculator</p>
+        <h1>多肽液相合成实验流程网页</h1>
+        <p class="hero-text">
+          根据 PDF 中的 7 步实验流程整理。每一步都可录入投料质量或摩尔量，自动换算另一项，并按限量底物计算理论产量与产率。
+        </p>
+      </div>
+      <div class="hero-panel">
+        <div class="hero-chip">步骤数 7</div>
+        <div class="hero-chip">自动换算 质量 / mmol</div>
+        <div class="hero-chip">自动推算整步投料</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="overview">
+        <div class="overview-card">
+          <h2>使用说明</h2>
+          <p>在任一步骤中输入任意原料的质量或摩尔量，系统会按分子量自动换算，并根据该物料的参考当量自动回填同一步的其他物料投料量。</p>
+        </div>
+        <div class="overview-card">
+          <h2>推算规则</h2>
+          <p>自动推算默认采用 PDF 表中当量区间的下限值；第 7 步按 1 当量 Boc-Glu 与 2 当量四肽胺盐酸盐的计量关系计算理论产量。</p>
+        </div>
+      </section>
+
+      <section id="steps" class="steps"></section>
+    </main>
+  </div>
+
+  <template id="step-template">
+    <article class="step-card">
+      <div class="step-head">
+        <div>
+          <p class="step-label"></p>
+          <h2 class="step-title"></h2>
+        </div>
+        <p class="step-equation"></p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="materials-table">
+          <thead>
+            <tr>
+              <th>物质</th>
+              <th>作用</th>
+              <th>分子量</th>
+              <th>投料比</th>
+              <th>质量 / g</th>
+              <th>n / mmol</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody class="materials-body"></tbody>
+        </table>
+      </div>
+
+      <div class="inference-bar">
+        <p class="inference-status">自动推算基准：-</p>
+      </div>
+
+      <div class="result-grid">
+        <div class="result-card">
+          <p class="result-label">理论产量</p>
+          <p class="result-value theoretical-mass">-</p>
+          <p class="result-sub theoretical-mmol">-</p>
+        </div>
+        <div class="result-card">
+          <label class="field-label">实际产量 / g</label>
+          <input class="actual-mass-input" type="number" min="0" step="0.0001" placeholder="输入实际产量">
+          <p class="result-sub actual-mmol">对应 mmol：-</p>
+        </div>
+        <div class="result-card accent">
+          <p class="result-label">产率</p>
+          <p class="result-value yield-value">-</p>
+          <p class="result-sub limiting-note">限量底物：-</p>
+        </div>
+      </div>
+    </article>
+  </template>
+
+</body>
+</html>
