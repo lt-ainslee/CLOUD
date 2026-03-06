@@ -3,14 +3,14 @@
     id: "step-1",
     label: "Step 1",
     title: "Boc-Glu(OBzl)-Ala-OBzl 的合成",
-    equation: "Boc-Glu(OBzl) + Ala-OBzl·HCl → Boc-Glu(OBzl)-Ala-OBzl",
+    equation: "Boc-Glu(OBzl) + H-Ala-OBzl·Tos → Boc-Glu(OBzl)-Ala-OBzl",
     product: { name: "Boc-Glu(OBzl)-Ala-OBzl", mw: 498.57 },
     rows: [
       { name: "Boc-Glu(OBzl)", role: "羧酸组分", mw: 337.37, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
       { name: "HOBt", role: "缩合助剂", mw: 153.15, eq: "1.00", ratio: 1.0, note: "通常与羧酸组分等当量" },
       { name: "DCC", role: "活化剂", mw: 206.33, eq: "1.05-1.10", ratio: 1.05, note: "通常略过量" },
-      { name: "Ala-OBzl·HCl", role: "胺组分", mw: 215.68, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
-      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和盐酸盐，再补少量过量碱" }
+      { name: "H-Ala-OBzl·Tos", role: "胺组分", mw: 351.42, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
+      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和对甲苯磺酸盐，再补少量过量碱" }
     ]
   },
   {
@@ -34,7 +34,7 @@
       { name: "HOBt", role: "缩合助剂", mw: 153.15, eq: "1.00", ratio: 1.0, note: "通常与羧酸组分等当量" },
       { name: "DCC", role: "活化剂", mw: 206.33, eq: "1.05-1.10", ratio: 1.05, note: "通常略过量" },
       { name: "Glu(OBzl)-Ala-OBzl·HCl", role: "胺组分", mw: 434.91, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
-      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和盐酸盐，再补少量过量碱" }
+      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和对甲苯磺酸盐，再补少量过量碱" }
     ]
   },
   {
@@ -58,7 +58,7 @@
       { name: "HOBt", role: "缩合助剂", mw: 153.15, eq: "1.00", ratio: 1.0, note: "通常与羧酸组分等当量" },
       { name: "DCC", role: "活化剂", mw: 206.33, eq: "1.05-1.10", ratio: 1.05, note: "通常略过量" },
       { name: "Gly-Glu(OBzl)-Ala-OBzl·HCl", role: "胺组分", mw: 491.96, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
-      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和盐酸盐，再补少量过量碱" }
+      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和对甲苯磺酸盐，再补少量过量碱" }
     ]
   },
   {
@@ -263,3 +263,4 @@ function renderStep(config) {
 steps.forEach((step) => {
   stepsContainer.appendChild(renderStep(step));
 });
+
