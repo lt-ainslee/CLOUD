@@ -34,7 +34,7 @@
       { name: "HOBt", role: "缩合助剂", mw: 153.15, eq: "1.00", ratio: 1.0, note: "通常与羧酸组分等当量" },
       { name: "DCC", role: "活化剂", mw: 206.33, eq: "1.05-1.10", ratio: 1.05, note: "通常略过量" },
       { name: "Glu(OBzl)-Ala-OBzl·HCl", role: "胺组分", mw: 434.91, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
-      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和对甲苯磺酸盐，再补少量过量碱" }
+      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和胺盐，再补少量过量碱" }
     ]
   },
   {
@@ -58,7 +58,7 @@
       { name: "HOBt", role: "缩合助剂", mw: 153.15, eq: "1.00", ratio: 1.0, note: "通常与羧酸组分等当量" },
       { name: "DCC", role: "活化剂", mw: 206.33, eq: "1.05-1.10", ratio: 1.05, note: "通常略过量" },
       { name: "Gly-Glu(OBzl)-Ala-OBzl·HCl", role: "胺组分", mw: 491.96, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
-      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和对甲苯磺酸盐，再补少量过量碱" }
+      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和胺盐，再补少量过量碱" }
     ]
   },
   {
@@ -74,20 +74,29 @@
   {
     id: "step-7",
     label: "Step 7",
-    title: "Boc-Glu[(Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl)]2 的合成",
-    equation: "Boc-Glu + 2 Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl·HCl → Boc-Glu[(Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl)]2",
-    product: { name: "Boc-Glu[(Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl)]2", mw: 1532.64 },
+    title: "Boc-Glu(OBzl)-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl 的合成",
+    equation: "Boc-Glu(OBzl) + Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl·HCl → Boc-Glu(OBzl)-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl",
+    product: { name: "Boc-Glu(OBzl)-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl", mw: 980.06 },
     rows: [
-      { name: "Boc-Glu", role: "中心双酸底物", mw: 247.25, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
-      { name: "HOBt", role: "缩合助剂", mw: 153.15, eq: "2.00-2.20", ratio: 2.0, note: "对应两个羧基" },
-      { name: "DCC", role: "活化剂", mw: 206.33, eq: "2.10-2.30", ratio: 2.1, note: "对应两个羧基" },
-      { name: "Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl·HCl", role: "四肽胺组分", mw: 697.17, eq: "2.40-3.00", ratio: 2.4, stoich: 2, note: "按 2 eq 参与理论产量计算" },
-      { name: "NMM", role: "有机碱", mw: 101.15, eq: "足量", ratio: 2.4, note: "参考按 2.4 eq 推算；可再补 0.5-1.0 eq" }
+      { name: "Boc-Glu(OBzl)", role: "谷氨酸引入片段", mw: 337.37, eq: "1.00", ratio: 1.0, stoich: 1, note: "唯一游离羧基参与缩合；理论产量参与计算" },
+      { name: "HOBt", role: "缩合助剂", mw: 153.15, eq: "1.00", ratio: 1.0, note: "对应一个游离羧基" },
+      { name: "DCC", role: "活化剂", mw: 206.33, eq: "1.05-1.10", ratio: 1.05, note: "对应一个游离羧基" },
+      { name: "Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl·HCl", role: "四肽胺组分", mw: 697.17, eq: "1.00-1.10", ratio: 1.0, stoich: 1, note: "可将胺组分微量过量；理论产量参与计算" },
+      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和四肽盐酸盐，再补 0.2-0.5 eq" }
     ]
   }
 ];
 
+const pickupMaterials = [
+  { name: "Boc-Glu(OBzl)", mw: 337.37, eq: "2.00", ratio: 2.0, steps: ["Step 1", "Step 7"] },
+  { name: "H-Ala-OBzl·Tos", mw: 351.42, eq: "1.00", ratio: 1.0, steps: ["Step 1"] },
+  { name: "Boc-Gly", mw: 175.18, eq: "1.00", ratio: 1.0, steps: ["Step 3"] },
+  { name: "Boc-Asp(OBzl)", mw: 323.34, eq: "1.00", ratio: 1.0, steps: ["Step 5"] }
+];
+
 const stepsContainer = document.querySelector("#steps");
+const pickupBody = document.querySelector("#pickup-body");
+const pickupStatus = document.querySelector("#pickup-status");
 const stepTemplate = document.querySelector("#step-template");
 
 function formatNumber(value, digits = 4) {
@@ -114,16 +123,22 @@ function massFromMmol(mmol, mw) {
   return (mmol * mw) / 1000;
 }
 
-function setRowValues(rowEl, row, mmol) {
+function setNumberInputs(rowEl, mw, mmol) {
   const massInput = rowEl.querySelector(".mass-input");
   const mmolInput = rowEl.querySelector(".mmol-input");
+
   if (mmol == null) {
     massInput.value = "";
     mmolInput.value = "";
     return;
   }
+
   mmolInput.value = formatNumber(mmol);
-  massInput.value = formatNumber(massFromMmol(mmol, row.mw));
+  massInput.value = formatNumber(massFromMmol(mmol, mw));
+}
+
+function setRowValues(rowEl, row, mmol) {
+  setNumberInputs(rowEl, row.mw, mmol);
 }
 
 function inferStepFromRow(card, config, sourceIndex, sourceMmol) {
@@ -242,6 +257,63 @@ function renderRow(row) {
   return tr;
 }
 
+function renderPickupRow(material) {
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${material.name}</td>
+    <td class="pickup-steps">${material.steps.join(" / ")}</td>
+    <td class="mw-cell">${material.mw}</td>
+    <td class="eq-cell">${material.eq}</td>
+    <td>
+      <input type="number" min="0" step="0.0001" class="mass-input" placeholder="输入质量">
+    </td>
+    <td>
+      <input type="number" min="0" step="0.0001" class="mmol-input" placeholder="输入 mmol">
+    </td>
+  `;
+  return tr;
+}
+
+function syncPickupTable(sourceIndex, sourceMmol) {
+  const rows = [...pickupBody.querySelectorAll("tr")];
+  const source = pickupMaterials[sourceIndex];
+
+  if (sourceMmol == null || sourceMmol < 0) {
+    rows.forEach((rowEl) => setNumberInputs(rowEl, 0, null));
+    pickupStatus.textContent = "统一取料基准：-";
+    return;
+  }
+
+  const baseScale = sourceMmol / source.ratio;
+
+  pickupMaterials.forEach((material, index) => {
+    setNumberInputs(rows[index], material.mw, baseScale * material.ratio);
+  });
+
+  pickupStatus.textContent = `统一取料基准：${source.name}，按 ${formatNumber(source.ratio, 2)} eq 反推整条路线原料`;
+}
+
+function bindPickupTable() {
+  const rows = [...pickupBody.querySelectorAll("tr")];
+
+  rows.forEach((rowEl, index) => {
+    const material = pickupMaterials[index];
+    const massInput = rowEl.querySelector(".mass-input");
+    const mmolInput = rowEl.querySelector(".mmol-input");
+
+    massInput.addEventListener("input", () => {
+      const mass = parseValue(massInput.value);
+      const mmol = mass == null ? null : mmolFromMass(mass, material.mw);
+      syncPickupTable(index, mmol);
+    });
+
+    mmolInput.addEventListener("input", () => {
+      const mmol = parseValue(mmolInput.value);
+      syncPickupTable(index, mmol);
+    });
+  });
+}
+
 function renderStep(config) {
   const fragment = stepTemplate.content.cloneNode(true);
   const card = fragment.querySelector(".step-card");
@@ -260,7 +332,12 @@ function renderStep(config) {
   return fragment;
 }
 
+pickupMaterials.forEach((material) => {
+  pickupBody.appendChild(renderPickupRow(material));
+});
+
+bindPickupTable();
+
 steps.forEach((step) => {
   stepsContainer.appendChild(renderStep(step));
 });
-

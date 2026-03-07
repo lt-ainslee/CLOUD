@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>多肽合成实验流程计算器</title>
-  <script type="module" crossorigin src="/assets/index-DqNrCEHg.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DmGWuIqR.css">
+  <script type="module" crossorigin src="/assets/index-7TtDhkBp.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CTpYgV4u.css">
 </head>
 <body>
   <div class="page-shell">
@@ -33,6 +33,36 @@
         <div class="overview-card">
           <h2>推算规则</h2>
           <p>自动推算默认采用 PDF 表中当量区间的下限值；第 7 步按 1 当量 Boc-Glu 与 2 当量四肽胺盐酸盐的计量关系计算理论产量。</p>
+        </div>
+      </section>
+
+      <section class="pickup-card">
+        <div class="pickup-head">
+          <div>
+            <p class="pickup-label">Unified Pickup</p>
+            <h2>氨基酸统一取料</h2>
+          </div>
+          <p class="pickup-note">输入任意一个氨基酸原料的 mmol，其余原料按 1.00 eq 自动同步计算。</p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="materials-table">
+            <thead>
+              <tr>
+                <th>原料</th>
+                <th>涉及步骤</th>
+                <th>分子量</th>
+                <th>等当量</th>
+                <th>质量 / g</th>
+                <th>n / mmol</th>
+              </tr>
+            </thead>
+            <tbody id="pickup-body"></tbody>
+          </table>
+        </div>
+
+        <div class="inference-bar">
+          <p id="pickup-status" class="inference-status">统一取料基准：-</p>
         </div>
       </section>
 

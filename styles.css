@@ -40,6 +40,7 @@ body {
 .hero-copy,
 .hero-panel,
 .overview-card,
+.pickup-card,
 .step-card {
   background: var(--panel);
   backdrop-filter: blur(14px);
@@ -52,7 +53,9 @@ body {
   padding: 32px;
 }
 
-.eyebrow {
+.eyebrow,
+.pickup-label,
+.step-label {
   margin: 0 0 12px;
   font-family: "Bahnschrift", "Segoe UI Semibold", sans-serif;
   font-size: 0.9rem;
@@ -69,6 +72,7 @@ h1 {
 
 .hero-text,
 .overview-card p,
+.pickup-note,
 .step-equation,
 .result-sub,
 .field-label,
@@ -108,11 +112,13 @@ td {
   margin-bottom: 26px;
 }
 
-.overview-card {
+.overview-card,
+.pickup-card {
   padding: 22px 24px;
 }
 
-.overview-card h2 {
+.overview-card h2,
+.pickup-head h2 {
   margin: 0 0 8px;
   font-size: 1.05rem;
 }
@@ -120,6 +126,29 @@ td {
 .overview-card p {
   margin: 0;
   line-height: 1.7;
+}
+
+.pickup-card {
+  margin-bottom: 22px;
+}
+
+.pickup-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.pickup-note {
+  margin: 0;
+  max-width: 34ch;
+  text-align: right;
+  line-height: 1.6;
+}
+
+.pickup-steps {
+  font-size: 0.9rem;
 }
 
 .steps {
@@ -141,9 +170,7 @@ td {
 }
 
 .step-label {
-  margin: 0 0 6px;
-  font-family: "Bahnschrift", "Segoe UI Semibold", sans-serif;
-  color: var(--accent);
+  margin-bottom: 6px;
 }
 
 .step-title {
@@ -299,11 +326,13 @@ input[type="number"]:focus {
     grid-template-columns: 1fr;
   }
 
+  .pickup-head,
   .step-head {
     flex-direction: column;
     align-items: start;
   }
 
+  .pickup-note,
   .step-equation {
     text-align: left;
   }
