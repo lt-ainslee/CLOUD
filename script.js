@@ -4,6 +4,15 @@
     label: "Step 1",
     title: "Boc-Glu(OBzl)-Ala-OBzl 的合成",
     equation: "Boc-Glu(OBzl) + H-Ala-OBzl·Tos → Boc-Glu(OBzl)-Ala-OBzl",
+    procedure: [
+      "将 Boc-Glu(OBzl) 加入干燥反应瓶，用无水 THF 溶解或分散，加入 HOBt 后冰浴搅拌约 10 min。",
+      "DCC 用少量无水 THF 溶解后滴加到体系中，继续冰浴 5-15 min 完成预活化。",
+      "加入 H-Ala-OBzl·Tos 固体或其 THF 悬液，随后缓慢加入 NMM，先中和对甲苯磺酸盐，再补 0.2-0.5 eq 过量碱。",
+      "撤去冰浴，室温搅拌 12-24 h；用 TLC（CH2Cl2/CH3OH = 20:1，茚三酮显色）监测胺组分消失。",
+      "反应结束后冷却至 0-5 °C 保持 20-60 min 促使 DCU 析出，必要时补加少量 EtOAc 稀释后过滤除去 DCU。",
+      "滤液减压浓缩，残渣用 EtOAc 重溶，依次用 5% NaHCO3、5% KHSO4 和饱和 NaCl 水溶液洗涤，必要时重复 1-2 轮。",
+      "有机层经无水 Na2SO4 干燥、过滤、浓缩，必要时柱层析纯化得到产物。"
+    ],
     product: { name: "Boc-Glu(OBzl)-Ala-OBzl", mw: 498.57 },
     rows: [
       { name: "Boc-Glu(OBzl)", role: "羧酸组分", mw: 337.37, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
@@ -18,6 +27,13 @@
     label: "Step 2",
     title: "Glu(OBzl)-Ala-OBzl·HCl 的合成",
     equation: "Boc-Glu(OBzl)-Ala-OBzl → Glu(OBzl)-Ala-OBzl·HCl",
+    procedure: [
+      "将 Boc-Glu(OBzl)-Ala-OBzl 置于干燥反应瓶中，冰浴搅拌下加入 4 N HCl/EA，保持体系无水。",
+      "继续冰浴反应 0.5-4 h，并以 TLC 监测至原料消失后停止反应。",
+      "减压除去溶剂与过量酸，再用干燥 EtOAc 共蒸 2-3 次以尽量除酸。",
+      "加入石油醚打浆，静置后倾去上清并减压干燥，得到盐酸盐粗品。",
+      "该中间体通常不再纯化，直接用于下一步反应。"
+    ],
     product: { name: "Glu(OBzl)-Ala-OBzl·HCl", mw: 434.91 },
     rows: [
       { name: "Boc-Glu(OBzl)-Ala-OBzl", role: "底物", mw: 498.57, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" }
@@ -28,6 +44,15 @@
     label: "Step 3",
     title: "Boc-Gly-Glu(OBzl)-Ala-OBzl 的合成",
     equation: "Boc-Gly + Glu(OBzl)-Ala-OBzl·HCl → Boc-Gly-Glu(OBzl)-Ala-OBzl",
+    procedure: [
+      "将 Boc-Gly 溶于无水 THF，加入 HOBt 后冰浴搅拌约 10 min。",
+      "DCC 用少量无水 THF 溶解后滴加，继续冰浴 5-15 min 完成预活化。",
+      "加入 Glu(OBzl)-Ala-OBzl·HCl 固体或其 THF/少量 DMF 悬液，最后缓慢加入 NMM，先中和盐酸盐，再补少量过量碱。",
+      "撤去冰浴，室温搅拌 12-24 h；用 TLC 配合茚三酮显色监测胺组分消失。",
+      "反应后先冷却至 0-5 °C 使 DCU 析出；若 DMF 比例较高或 DCU 颗粒较细，可先加 EtOAc 或 2-MeTHF 稀释后过滤。",
+      "滤液转入分液漏斗，依次水洗 1 次、5% LiCl 水溶液洗 2-3 次、饱和 NaCl 洗 1 次；必要时再辅以 5% NaHCO3 或 5% KHSO4 快速洗涤。",
+      "有机层经无水 Na2SO4 干燥、过滤、浓缩，必要时柱层析纯化得到产物。"
+    ],
     product: { name: "Boc-Gly-Glu(OBzl)-Ala-OBzl", mw: 555.62 },
     rows: [
       { name: "Boc-Gly", role: "羧酸组分", mw: 175.18, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
@@ -42,6 +67,13 @@
     label: "Step 4",
     title: "Gly-Glu(OBzl)-Ala-OBzl·HCl 的合成",
     equation: "Boc-Gly-Glu(OBzl)-Ala-OBzl → Gly-Glu(OBzl)-Ala-OBzl·HCl",
+    procedure: [
+      "将 Boc-Gly-Glu(OBzl)-Ala-OBzl 置于干燥反应瓶中，冰浴下加入 4 N HCl/EA 并保持无水。",
+      "继续搅拌 0.5-4 h，用 TLC 监测至原料消失。",
+      "减压除去溶剂和酸，再用干燥 EtOAc 共蒸 2-3 次。",
+      "最后以石油醚打浆并减压干燥，得到盐酸盐粗品。",
+      "该中间体通常不再纯化，直接带盐进入下一步。"
+    ],
     product: { name: "Gly-Glu(OBzl)-Ala-OBzl·HCl", mw: 491.96 },
     rows: [
       { name: "Boc-Gly-Glu(OBzl)-Ala-OBzl", role: "底物", mw: 555.62, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" }
@@ -52,6 +84,15 @@
     label: "Step 5",
     title: "Boc-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl 的合成",
     equation: "Boc-Asp(OBzl) + Gly-Glu(OBzl)-Ala-OBzl·HCl → Boc-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl",
+    procedure: [
+      "将 Boc-Asp(OBzl) 用无水 THF 溶解或均匀分散，加入 HOBt 后冰浴搅拌约 10 min。",
+      "DCC 用少量无水 THF 溶解后滴加到反应液中，继续冰浴 5-15 min 形成活化体系。",
+      "加入 Gly-Glu(OBzl)-Ala-OBzl·HCl 固体或其 THF/DMF 悬液，最后缓慢加入 NMM，先中和盐酸盐，再补少量过量碱。",
+      "撤去冰浴，室温搅拌约 8-12 h，必要时延长，并以 TLC/茚三酮跟踪终点。",
+      "反应结束后按 Step 3 的后处理执行：先低温析出 DCU，必要时用 EtOAc 或 2-MeTHF 稀释后过滤。",
+      "滤液依次经水洗、5% LiCl 水溶液洗 2-3 次及饱和 NaCl 洗 1 次后干燥浓缩，必要时再做简短酸洗或碱洗。",
+      "必要时柱层析纯化，得到目标化合物。"
+    ],
     product: { name: "Boc-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl", mw: 760.83 },
     rows: [
       { name: "Boc-Asp(OBzl)", role: "羧酸组分", mw: 323.34, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
@@ -66,6 +107,13 @@
     label: "Step 6",
     title: "Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl·HCl 的合成",
     equation: "Boc-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl → Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl·HCl",
+    procedure: [
+      "将 Boc-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl 置于干燥反应瓶中，冰浴下加入 4 N HCl/EA。",
+      "继续搅拌 0.5-4 h，以 TLC 监测至原料消失。",
+      "减压除去溶剂与酸后，用干燥 EtOAc 共蒸 2-3 次。",
+      "再以石油醚打浆并减压干燥，得到盐酸盐粗品。",
+      "该中间体通常不纯化，直接用于后续与 Boc-Glu(OBzl) 的缩合。"
+    ],
     product: { name: "Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl·HCl", mw: 697.17 },
     rows: [
       { name: "Boc-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl", role: "底物", mw: 760.83, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" }
@@ -76,6 +124,15 @@
     label: "Step 7",
     title: "Boc-Glu(OBzl)-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl 的合成",
     equation: "Boc-Glu(OBzl) + Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl·HCl → Boc-Glu(OBzl)-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl",
+    procedure: [
+      "将 Boc-Glu(OBzl) 加入干燥反应瓶，用无水 THF 或 THF/少量 DMF 混合溶剂溶解，加入 HOBt 后冰浴搅拌约 10 min。",
+      "DCC 用少量无水 THF 溶解后滴加，继续冰浴 5-15 min，活化 Boc-Glu(OBzl) 的游离羧基。",
+      "加入 Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl·HCl 固体或其 THF/DMF 悬液，最后缓慢加入 NMM，先中和四肽盐酸盐，再补 0.2-0.5 eq 过量碱。",
+      "撤去冰浴后室温搅拌 12-24 h；用 TLC 配合茚三酮显色监测四肽胺盐酸盐消失，必要时可补加少量活化后的 Boc-Glu(OBzl)。",
+      "反应结束后冷却至 0-5 °C 放置 30-60 min 促使 DCU 析出；若体系较稠或 DMF 比例较高，可补加 EtOAc 或 2-MeTHF 稀释后过滤。",
+      "滤液转入分液漏斗，依次水洗 1 次、5% LiCl 水溶液洗 2-3 次、饱和 NaCl 洗 1 次；必要时根据 TLC 结果再做简短 5% NaHCO3 或 5% KHSO4 洗涤。",
+      "有机层经无水 Na2SO4 干燥、过滤、浓缩；若仍显黏稠，可先稀释后再浓缩，必要时柱层析纯化得到产物。"
+    ],
     product: { name: "Boc-Glu(OBzl)-Asp(OBzl)-Gly-Glu(OBzl)-Ala-OBzl", mw: 980.06 },
     rows: [
       { name: "Boc-Glu(OBzl)", role: "谷氨酸引入片段", mw: 337.37, eq: "1.00", ratio: 1.0, stoich: 1, note: "唯一游离羧基参与缩合；理论产量参与计算" },
@@ -321,6 +378,12 @@ function renderStep(config) {
   card.querySelector(".step-label").textContent = config.label;
   card.querySelector(".step-title").textContent = config.title;
   card.querySelector(".step-equation").textContent = config.equation;
+  const procedureList = card.querySelector(".procedure-list");
+  config.procedure.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    procedureList.appendChild(li);
+  });
 
   const body = card.querySelector(".materials-body");
   config.rows.forEach((row) => {

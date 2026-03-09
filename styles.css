@@ -74,6 +74,7 @@ h1 {
 .overview-card p,
 .pickup-note,
 .step-equation,
+.procedure-list,
 .result-sub,
 .field-label,
 .inference-status,
@@ -163,9 +164,7 @@ td {
 
 .step-head {
   display: flex;
-  justify-content: space-between;
   align-items: end;
-  gap: 16px;
   margin-bottom: 18px;
 }
 
@@ -178,11 +177,44 @@ td {
   font-size: clamp(1.15rem, 2vw, 1.5rem);
 }
 
+.step-meta-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.4fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.info-panel {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--line);
+}
+
+.info-panel-label {
+  margin: 0 0 10px;
+  font-family: "Bahnschrift", "Segoe UI Semibold", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .step-equation {
   margin: 0;
-  max-width: 34ch;
-  text-align: right;
-  line-height: 1.6;
+  color: var(--text);
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+.procedure-list {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+.procedure-list li + li {
+  margin-top: 8px;
 }
 
 .table-wrap {
@@ -322,6 +354,7 @@ input[type="number"]:focus {
 @media (max-width: 960px) {
   .hero,
   .overview,
+  .step-meta-grid,
   .result-grid {
     grid-template-columns: 1fr;
   }
@@ -330,10 +363,5 @@ input[type="number"]:focus {
   .step-head {
     flex-direction: column;
     align-items: start;
-  }
-
-  .pickup-note,
-  .step-equation {
-    text-align: left;
   }
 }
