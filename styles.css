@@ -263,7 +263,8 @@ th {
   font-size: 0.82rem;
 }
 
-input[type="number"] {
+input[type="number"],
+input[type="text"] {
   width: 100%;
   border: 1px solid rgba(122, 104, 83, 0.22);
   border-radius: 12px;
@@ -273,7 +274,8 @@ input[type="number"] {
   font: inherit;
 }
 
-input[type="number"]:focus {
+input[type="number"]:focus,
+input[type="text"]:focus {
   outline: 2px solid rgba(164, 70, 31, 0.16);
   border-color: rgba(164, 70, 31, 0.32);
 }

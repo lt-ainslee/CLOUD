@@ -168,7 +168,8 @@ function parseValue(value) {
   if (value === "" || value == null) {
     return null;
   }
-  const number = Number(value);
+  const normalized = String(value).trim().replace(/[。．，]/g, ".");
+  const number = Number(normalized);
   return Number.isFinite(number) ? number : null;
 }
 
@@ -312,10 +313,10 @@ function renderRow(row) {
     <td class="mw-cell">${row.mw}</td>
     <td class="eq-cell">${row.eq}</td>
     <td>
-      <input type="number" min="0" step="0.0001" inputmode="decimal" lang="en" class="mass-input" placeholder="输入质量">
+      <input type="text" inputmode="decimal" lang="en" autocomplete="off" class="mass-input" placeholder="输入质量">
     </td>
     <td>
-      <input type="number" min="0" step="0.0001" inputmode="decimal" lang="en" class="mmol-input" placeholder="输入 mmol">
+      <input type="text" inputmode="decimal" lang="en" autocomplete="off" class="mmol-input" placeholder="输入 mmol">
     </td>
     <td>${row.note ?? "-"}</td>
   `;
@@ -330,10 +331,10 @@ function renderPickupRow(material) {
     <td class="mw-cell">${material.mw}</td>
     <td class="eq-cell">${material.eq}</td>
     <td>
-      <input type="number" min="0" step="0.0001" inputmode="decimal" lang="en" class="mass-input" placeholder="输入质量">
+      <input type="text" inputmode="decimal" lang="en" autocomplete="off" class="mass-input" placeholder="输入质量">
     </td>
     <td>
-      <input type="number" min="0" step="0.0001" inputmode="decimal" lang="en" class="mmol-input" placeholder="输入 mmol">
+      <input type="text" inputmode="decimal" lang="en" autocomplete="off" class="mmol-input" placeholder="输入 mmol">
     </td>
   `;
   return tr;
