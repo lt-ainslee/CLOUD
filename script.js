@@ -181,6 +181,38 @@ function massFromMmol(mmol, mw) {
   return (mmol * mw) / 1000;
 }
 
+function insertAtCursor(input, text) {
+  const start = input.selectionStart ?? input.value.length;
+  const end = input.selectionEnd ?? start;
+  const nextValue = `${input.value.slice(0, start)}${text}${input.value.slice(end)}`;
+  input.value = nextValue;
+  const nextCursor = start + text.length;
+  input.setSelectionRange(nextCursor, nextCursor);
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+}
+
+function attachDecimalInputBehavior(input) {
+  input.addEventListener("keydown", (event) => {
+    const isDecimalKey = event.key === "." || event.key === "。" || event.key === "．" || event.key === "," || event.key === "，" || event.code === "NumpadDecimal";
+    if (!isDecimalKey) {
+      return;
+    }
+
+    event.preventDefault();
+    insertAtCursor(input, ".");
+  });
+
+  input.addEventListener("beforeinput", (event) => {
+    const text = event.data;
+    if (!text || ![".", "。", "．", ",", "，"].includes(text)) {
+      return;
+    }
+
+    event.preventDefault();
+    insertAtCursor(input, ".");
+  });
+}
+
 function setInputValue(input, value, { preserveWhileFocused = false } = {}) {
   if (preserveWhileFocused && document.activeElement === input) {
     return;
@@ -286,6 +318,9 @@ function bindRowConversion(card, config) {
     const massInput = rowEl.querySelector(".mass-input");
     const mmolInput = rowEl.querySelector(".mmol-input");
 
+    attachDecimalInputBehavior(massInput);
+    attachDecimalInputBehavior(mmolInput);
+
     massInput.addEventListener("input", () => {
       const mass = parseValue(massInput.value);
       const mmol = mass == null ? null : mmolFromMass(mass, row.mw);
@@ -300,7 +335,10 @@ function bindRowConversion(card, config) {
     });
   });
 
-  card.querySelector(".actual-mass-input").addEventListener("input", () => {
+  const actualMassInput = card.querySelector(".actual-mass-input");
+  attachDecimalInputBehavior(actualMassInput);
+
+  actualMassInput.addEventListener("input", () => {
     calculateStep(card, config);
   });
 }
@@ -366,6 +404,9 @@ function bindPickupTable() {
     const material = pickupMaterials[index];
     const massInput = rowEl.querySelector(".mass-input");
     const mmolInput = rowEl.querySelector(".mmol-input");
+
+    attachDecimalInputBehavior(massInput);
+    attachDecimalInputBehavior(mmolInput);
 
     massInput.addEventListener("input", () => {
       const mass = parseValue(massInput.value);
