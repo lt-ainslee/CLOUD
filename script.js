@@ -180,22 +180,30 @@ function massFromMmol(mmol, mw) {
   return (mmol * mw) / 1000;
 }
 
-function setNumberInputs(rowEl, mw, mmol) {
+function setInputValue(input, value, { preserveWhileFocused = false } = {}) {
+  if (preserveWhileFocused && document.activeElement === input) {
+    return;
+  }
+
+  input.value = value;
+}
+
+function setNumberInputs(rowEl, mw, mmol, options = {}) {
   const massInput = rowEl.querySelector(".mass-input");
   const mmolInput = rowEl.querySelector(".mmol-input");
 
   if (mmol == null) {
-    massInput.value = "";
-    mmolInput.value = "";
+    setInputValue(massInput, "", options);
+    setInputValue(mmolInput, "", options);
     return;
   }
 
-  mmolInput.value = formatNumber(mmol);
-  massInput.value = formatNumber(massFromMmol(mmol, mw));
+  setInputValue(mmolInput, formatNumber(mmol), options);
+  setInputValue(massInput, formatNumber(massFromMmol(mmol, mw)), options);
 }
 
 function setRowValues(rowEl, row, mmol) {
-  setNumberInputs(rowEl, row.mw, mmol);
+  setNumberInputs(rowEl, row.mw, mmol, { preserveWhileFocused: true });
 }
 
 function inferStepFromRow(card, config, sourceIndex, sourceMmol) {
@@ -304,10 +312,10 @@ function renderRow(row) {
     <td class="mw-cell">${row.mw}</td>
     <td class="eq-cell">${row.eq}</td>
     <td>
-      <input type="number" min="0" step="0.0001" class="mass-input" placeholder="输入质量">
+      <input type="number" min="0" step="0.0001" inputmode="decimal" lang="en" class="mass-input" placeholder="输入质量">
     </td>
     <td>
-      <input type="number" min="0" step="0.0001" class="mmol-input" placeholder="输入 mmol">
+      <input type="number" min="0" step="0.0001" inputmode="decimal" lang="en" class="mmol-input" placeholder="输入 mmol">
     </td>
     <td>${row.note ?? "-"}</td>
   `;
@@ -322,10 +330,10 @@ function renderPickupRow(material) {
     <td class="mw-cell">${material.mw}</td>
     <td class="eq-cell">${material.eq}</td>
     <td>
-      <input type="number" min="0" step="0.0001" class="mass-input" placeholder="输入质量">
+      <input type="number" min="0" step="0.0001" inputmode="decimal" lang="en" class="mass-input" placeholder="输入质量">
     </td>
     <td>
-      <input type="number" min="0" step="0.0001" class="mmol-input" placeholder="输入 mmol">
+      <input type="number" min="0" step="0.0001" inputmode="decimal" lang="en" class="mmol-input" placeholder="输入 mmol">
     </td>
   `;
   return tr;
@@ -336,7 +344,7 @@ function syncPickupTable(sourceIndex, sourceMmol) {
   const source = pickupMaterials[sourceIndex];
 
   if (sourceMmol == null || sourceMmol < 0) {
-    rows.forEach((rowEl) => setNumberInputs(rowEl, 0, null));
+    rows.forEach((rowEl) => setNumberInputs(rowEl, 0, null, { preserveWhileFocused: true }));
     pickupStatus.textContent = "统一取料基准：-";
     return;
   }
