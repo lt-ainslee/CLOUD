@@ -3,11 +3,11 @@
     id: "step-1",
     label: "Step 1",
     title: "Boc-Glu(OBzl)-Ala-OBzl 的合成",
-    equation: "Boc-Glu(OBzl) + H-Ala-OBzl·Tos → Boc-Glu(OBzl)-Ala-OBzl",
+    equation: "Boc-Glu(OBzl) + H-Ala-OBzl·HCl → Boc-Glu(OBzl)-Ala-OBzl",
     procedure: [
       "将 Boc-Glu(OBzl) 加入干燥反应瓶，用无水 THF 溶解或分散，加入 HOBt 后冰浴搅拌约 10 min。",
       "DCC 用少量无水 THF 溶解后滴加到体系中，继续冰浴 5-15 min 完成预活化。",
-      "加入 H-Ala-OBzl·Tos 固体或其 THF 悬液，随后缓慢加入 NMM，先中和对甲苯磺酸盐，再补 0.2-0.5 eq 过量碱。",
+      "加入 H-Ala-OBzl·HCl 固体或其 THF 悬液，随后缓慢加入 NMM，先中和盐酸盐，再补 0.2-0.5 eq 过量碱。",
       "撤去冰浴，室温搅拌 12-24 h；用 TLC（CH2Cl2/CH3OH = 20:1，茚三酮显色）监测胺组分消失。",
       "反应结束后冷却至 0-5 °C 保持 20-60 min 促使 DCU 析出，必要时补加少量 EtOAc 稀释后过滤除去 DCU。",
       "滤液减压浓缩，残渣用 EtOAc 重溶，依次用 5% NaHCO3、5% KHSO4 和饱和 NaCl 水溶液洗涤，必要时重复 1-2 轮。",
@@ -18,8 +18,8 @@
       { name: "Boc-Glu(OBzl)", role: "羧酸组分", mw: 337.37, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
       { name: "HOBt", role: "缩合助剂", mw: 153.15, eq: "1.00", ratio: 1.0, note: "通常与羧酸组分等当量" },
       { name: "DCC", role: "活化剂", mw: 206.33, eq: "1.05-1.10", ratio: 1.05, note: "通常略过量" },
-      { name: "H-Ala-OBzl·Tos", role: "胺组分", mw: 351.42, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
-      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和对甲苯磺酸盐，再补少量过量碱" }
+      { name: "H-Ala-OBzl·HCl", role: "胺组分", mw: 215.68, eq: "1.00", ratio: 1.0, stoich: 1, note: "理论产量参与计算" },
+      { name: "NMM", role: "有机碱", mw: 101.15, eq: "2.20-3.00", ratio: 2.2, note: "先中和盐酸盐，再补少量过量碱" }
     ]
   },
   {
@@ -146,7 +146,7 @@
 
 const pickupMaterials = [
   { name: "Boc-Glu(OBzl)", mw: 337.37, eq: "2.00", ratio: 2.0, steps: ["Step 1", "Step 7"] },
-  { name: "H-Ala-OBzl·Tos", mw: 351.42, eq: "1.00", ratio: 1.0, steps: ["Step 1"] },
+  { name: "H-Ala-OBzl·HCl", mw: 215.68, eq: "1.00", ratio: 1.0, steps: ["Step 1"] },
   { name: "Boc-Gly", mw: 175.18, eq: "1.00", ratio: 1.0, steps: ["Step 3"] },
   { name: "Boc-Asp(OBzl)", mw: 323.34, eq: "1.00", ratio: 1.0, steps: ["Step 5"] }
 ];
